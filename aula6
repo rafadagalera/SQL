@@ -1,0 +1,306 @@
+CREATE TABLE depart (
+    id_depart   NUMBER(5) PRIMARY KEY,
+    nome_depart VARCHAR(40)
+);
+
+CREATE TABLE func (
+    id_func   NUMBER(5) PRIMARY KEY,
+    nome_func VARCHAR(50),
+    endereco  VARCHAR(50),
+    cidade    VARCHAR(15),
+    uf        CHAR(2),
+    cep       VARCHAR(9),
+    telefone  VARCHAR(20),
+    salario   NUMBER(10, 2),
+    data_ad   DATE,
+    email     VARCHAR(50),
+    id_depart INTEGER
+);
+
+ALTER TABLE func
+    ADD CONSTRAINT id_depart FOREIGN KEY ( id_depart )
+        REFERENCES depart ( id_depart );
+
+INSERT INTO depart (
+    id_depart,
+    nome_depart
+) VALUES (
+    70,
+    'ADMINISTRATIVO'
+);
+
+INSERT INTO depart (
+    id_depart,
+    nome_depart
+) VALUES (
+    80,
+    'TI'
+);
+
+INSERT INTO depart (
+    id_depart,
+    nome_depart
+) VALUES (
+    20,
+    'VENDAS'
+);
+
+INSERT INTO depart (
+    id_depart,
+    nome_depart
+) VALUES (
+    10,
+    'COMPRAS'
+);
+
+INSERT INTO depart (
+    id_depart,
+    nome_depart
+) VALUES (
+    30,
+    ''
+);
+
+INSERT INTO func (
+    id_func,
+    nome_func,
+    endereco,
+    cidade,
+    uf,
+    cep,
+    telefone,
+    salario,
+    data_ad,
+    email,
+    id_depart
+) VALUES (
+    100,
+    'João da Silva',
+    'R. Das Flores, 165',
+    'São Paulo',
+    'SP',
+    '09870-000',
+    '(11)6004-0000',
+    21800,
+    '05-MAY-03',
+    'JS@MAS.COM.BR',
+    80
+);
+
+INSERT INTO func (
+    id_func,
+    nome_func,
+    endereco,
+    cidade,
+    uf,
+    cep,
+    telefone,
+    salario,
+    data_ad,
+    email,
+    id_depart
+) VALUES (
+    101,
+    'Maria da PEREIRA',
+    'R. XX',
+    'São Paulo',
+    'SP',
+    '03344-000',
+    '(11)9000-0000',
+    10000,
+    '23-APR-11',
+    'MMP@FF.COM.BR',
+    80
+);
+
+INSERT INTO func (
+    id_func,
+    nome_func,
+    endereco,
+    cidade,
+    uf,
+    cep,
+    telefone,
+    salario,
+    data_ad,
+    email,
+    id_depart
+) VALUES (
+    102,
+    'Felipe Silva',
+    'R. Das Neves, 65',
+    'São Paulo',
+    'SP',
+    '03344-000',
+    '(11)9000-
+0000',
+    4800,
+    '12-MAY-10',
+    'FS@TT.COM.BR',
+    70
+);
+
+INSERT INTO func (
+    id_func,
+    nome_func,
+    endereco,
+    cidade,
+    uf,
+    cep,
+    telefone,
+    salario,
+    data_ad,
+    email,
+    id_depart
+) VALUES (
+    103,
+    'Jose Dois',
+    'R. QUATRO',
+    'São Paulo',
+    'SP',
+    '03344-000',
+    '(11)9000-0000',
+    1550,
+    '11-NOV-11',
+    'JD@JJ.COM.BR',
+    10
+);
+
+INSERT INTO func (
+    id_func,
+    nome_func,
+    endereco,
+    cidade,
+    uf,
+    cep,
+    salario,
+    data_ad,
+    email,
+    id_depart
+) VALUES (
+    104,
+    'Helena Um',
+    'CINCO',
+    'São Paulo',
+    'SP',
+    '03344-000',
+    2500,
+    '10-OCT-10',
+    'HU@GG.COM.BR',
+    20
+);
+
+INSERT INTO func (
+    id_func,
+    nome_func,
+    endereco,
+    cidade,
+    uf,
+    cep,
+    salario,
+    data_ad,
+    email,
+    id_depart
+) VALUES (
+    105,
+    'Sempre Um',
+    'R. Das Neves, 65',
+    'São Paulo',
+    'SP',
+    '03344-000',
+    1000,
+    '10-OCT-01',
+    'HU@GG.COM.BR',
+    20
+);
+
+INSERT INTO func (
+    id_func,
+    nome_func,
+    endereco,
+    cidade,
+    uf,
+    cep,
+    salario,
+    data_ad,
+    email,
+    id_depart
+) VALUES (
+    106,
+    'Nunca dois',
+    'SETE',
+    'São Paulo',
+    'SP',
+    '03344-000',
+    800,
+    '10-OCT-01',
+    'HU@GG.COM.BR',
+    10
+);
+
+SELECT
+    *
+FROM
+    func;
+
+SELECT
+    sysdate
+FROM
+    dual;
+
+SELECT
+    id_func,
+    nome_func,
+    salario
+FROM
+    func
+WHERE
+    salario >= 4000;
+
+SELECT
+    id_func,
+    nome_func,
+    salario
+FROM
+    func
+WHERE
+    salario BETWEEN 1000 AND 5000;
+SELECT
+    id_func,
+    nome_func,
+    salario
+FROM
+    func
+WHERE
+     ID_FUNC IN (101, 105 , 103);
+SELECT
+    id_func,
+    nome_func,
+    salario
+FROM
+    func
+WHERE
+     NOME_FUNC LIKE 'H%';   
+SELECT
+    id_func,
+    nome_func,
+    salario
+FROM
+    func
+WHERE
+     NOME_FUNC LIKE '_a%';
+SELECT
+    id_func,
+    nome_func,
+    salario
+FROM
+    func
+WHERE
+    telefone IS NULL;      
+SELECT
+    id_func,
+    nome_func,
+    salario
+FROM
+    func
+ORDER BY NOME_FUNC DESC;        

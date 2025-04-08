@@ -1,0 +1,143 @@
+SELECT DISTINCT
+    email
+FROM
+    func;
+
+SELECT
+    nome_func,
+    salario,
+    salario / 1.3,
+    round(salario / 1.3, 2)
+FROM
+    func
+WHERE
+    id_func = 102;
+
+SELECT
+    nome_func,
+    salario,
+    salario
+/ 1.3,
+    round(salario / 1.3, 2),
+    TRUNC(salario/1.3,)
+FROM
+    func
+WHERE
+    id_func = 102;
+SELECT
+    nome_func,
+    length(nome_func)
+FROM
+    func;
+
+SELECT
+    nome_func,
+    substr(nome_func, 6)
+FROM
+    func;
+
+SELECT
+    nome_func,
+    instr(nome_func, 'U')
+FROM
+    func;
+
+SELECT
+    lpad('Silva', 6, '0')
+FROM
+    func;
+
+SELECT
+    rpad('Silva', 6, '0')
+FROM
+    func;
+
+SELECT
+    upper(nome_func)
+FROM
+    func;
+WHERE upper(nome_func) = 'MARIA DA PEREIRA';
+SELECT
+    initcap(nome_func)
+FROM
+    func;
+
+SELECT
+    concat(id_func, nome_func) AS "CÓDIGO E NOME"
+FROM
+    func;
+
+SELECT
+    id_func || ' '
+               || nome_func
+FROM
+    func;
+    
+// IMPORTANTE!!
+SELECT
+    sysdate
+FROM
+    dual;
+
+SELECT
+    nome_func,
+    data_ad
+FROM
+    func
+WHERE
+    nome_func LIKE '%U%';
+
+SELECT
+    data_ad,
+    data_ad + 250
+FROM
+    func;
+
+SELECT
+    nome_func,
+    sysdate,
+    data_ad,
+    sysdate - data_ad
+FROM
+    func
+WHERE
+    id_func = 102;
+
+SELECT
+    nome_func,
+    sysdate,
+    data_ad,
+    trunc(months_between(sysdate, data_ad))
+FROM
+    func;
+
+SELECT
+    sysdate,
+    next_day(sysdate, 'MONDAY')
+FROM
+    dual;
+
+SELECT
+    sysdate,
+    last_day(sysdate)
+FROM
+    dual;
+
+SELECT
+    nome_func,
+    to_char(data_ad, 'MM/YYYY') data
+FROM
+    func
+WHERE
+    salario > 4500;
+
+SELECT
+    nome_func,
+    to_char(data_ad, 'fmDD MONTH YYYY') data
+FROM
+    func
+WHERE
+    id_func = 105;
+
+
+    

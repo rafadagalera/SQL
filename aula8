@@ -1,0 +1,67 @@
+SELECT
+    AVG(salario),
+    MAX(salario),
+    MIN(salario),
+    SUM(salario)
+FROM
+    func;
+
+SELECT
+    MIN(data_ad),
+    MAX(data_ad)
+FROM
+    func;
+
+SELECT
+    COUNT(*)
+FROM
+    func
+WHERE
+    id_depart = 80;
+
+SELECT
+    id_depart,
+    AVG(salario)
+FROM
+    func
+GROUP BY
+    id_depart;
+
+SELECT
+    id_func,
+    id_depart,
+    SUM(salario)
+FROM
+    func
+GROUP BY
+    id_func,
+    id_depart;
+
+SELECT
+    *
+FROM
+    func;
+
+SELECT
+    id_depart,
+    AVG(salario)
+FROM
+    func
+HAVING
+    AVG(salario) > 1000
+GROUP BY
+    id_depart;
+
+SELECT
+    id_depart,
+    SUM(salario) AS soma
+FROM
+    func
+WHERE
+    nome_func NOT LIKE '%SIL%'
+GROUP BY
+    id_depart
+HAVING
+    SUM(salario) > 1000
+ORDER BY
+    SUM(salario);

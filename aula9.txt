@@ -1,0 +1,57 @@
+SELECT
+    func.id_func,
+    func.nome_func,
+    func.id_depart,
+    depart.id_depart,
+    depart.nome_depart
+FROM
+    func,
+    depart
+WHERE
+    func.id_depart = depart.id_depart;
+
+SELECT
+    nome_func,
+    nome_depart
+FROM
+         func
+    CROSS JOIN depart;
+
+SELECT
+    id_func,
+    nome_func,
+    id_depart
+FROM
+         func
+    NATURAL JOIN depart;
+
+SELECT
+    f.id_func,
+    f.nome_func,
+    f.id_depart,
+    d.id_depart,
+    d.nome_depart
+FROM
+         func f
+    INNER JOIN depart d ON ( f.id_depart = d.id_depart );
+
+// da preferencia aos dados na tabela a esquerda (func)    
+SELECT f.id_func,
+    f.nome_func,
+    f.id_depart,
+    d.nome_depart 
+    from func f left outer join depart d on(f.id_depart = d.id_depart);
+
+// da preferencia aos dados na tabela a direita (depart)
+SELECT f.id_func,
+    f.nome_func,
+    f.id_depart,
+    d.nome_depart 
+    from func f right outer join depart d on(f.id_depart = d.id_depart);    
+// consulta todas as linhas da tabela func mesmo quando nao ha correspondencia na tabela depart    
+SELECT f.id_func,
+    f.nome_func,
+    f.id_depart,
+    d.nome_depart 
+    from func f full outer join depart d on(f.id_depart = d.id_depart);      
+    
